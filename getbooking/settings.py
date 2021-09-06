@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
 
-    'getbooking',
+    'getbooking.core',
+    'getbooking.customer',
 ]
 
 MIDDLEWARE = [
@@ -46,7 +47,7 @@ ROOT_URLCONF = 'getbooking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'getbooking', 'core', 'templates'), ],
+        'DIRS': [os.path.join(BASE_DIR, 'getbooking', 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
