@@ -1,0 +1,53 @@
+{% extends 'customer/base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <!-- LEFT_SIDE -->
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    JOB SUMMARY
+                </div>
+                <div class="card-body">
+                    <p>A summary of your job information will appear here</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT_SIDE -->
+        <div class="col-lg-8">
+            <!-- Step forms -->
+            <!-- Phone number -->
+            <b class="text-secondary">Mobile Number</b><br />
+
+            <div class="card bg-white mt-2 mb-5">
+                <div class="card-body">
+
+                    <div id="recaptcha-container"></div>
+
+                    <div id="get-code" class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="04xx-xxx-xxx">
+                        <div class="input-group-append">
+                            <button class="btn btn-warning" type="button">Next</button>
+                        </div>
+                    </div>
+                    <div id="verify-code" class="input-group mb-3 d-none">
+                        <input type="text" class="form-control" placeholder="Verification code">
+                        <div class="input-group-append">
+                            <button class="btn btn-warning" type="button">Verify Code</button>
+                        </div>
+                    </div>
+                    <div id="change-phone" class="input-group mb-3 d-none">
+                        <input type="text" class="form-control" disabled value="">
+                        <div class="input-group-append">
+                            <button class="btn btn-warning" type="button">Change</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

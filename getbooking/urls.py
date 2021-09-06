@@ -21,6 +21,7 @@ from getbooking.customer import views as customer_views
 
 customer_urlpatterns = [
     path('appointment/', customer_views.appointment),
+    path('verify-mobile/', customer_views.verify_mobile)
 ]
 
 urlpatterns = [
