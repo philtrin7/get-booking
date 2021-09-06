@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
+from getbooking.customer import forms
 
-def home(request):
-    return render(request, 'customer/hello.html')
+
+def appointment(request):
+    booking_form = forms.CreateBookingForm()
+
+    return render(request, 'customer/appointment.html')
