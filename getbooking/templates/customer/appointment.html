@@ -1,5 +1,43 @@
 {% extends 'customer/base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
-<h1>Hello customer!</h1>
+<div class="container mt-4">
+    <div class="row">
+        <!-- LEFT_SIDE -->
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    JOB SUMMARY
+                </div>
+                <div class="card-body">
+                    <p>A summary of your job information will appear here</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT_SIDE -->
+        <div class="col-lg-8">
+            <!-- Step forms -->
+            <b>CREATE A JOB</b>
+            <!-- Step 1 -->
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
+                    <h1>Item Info</h1>
+                    <form method="POST" enctype="multipart/form-data">
+                        <b class="text-secondary">Item Information</b><br />
+                        <div class="card bg-white mt-2 mb-5">
+                            <div class="card-body">
+                                {% csrf_token %}
+                                {% bootstrap_form booking_form %}
+                            </div>
+                        </div>
+                        <input type="hidden" name="step" value="1" />
+                        <button type="submit" class="btn btn-warning">Save & Continue</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
