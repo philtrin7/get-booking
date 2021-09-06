@@ -1,6 +1,10 @@
 {% extends 'customer/base.html' %}
 {% load bootstrap4 %}
 
+{% block head %}
+{% include 'customer/firebase.html' %}
+{% endblock head %}
+
 {% block content %}
 <div class="container mt-4">
     <div class="row">
