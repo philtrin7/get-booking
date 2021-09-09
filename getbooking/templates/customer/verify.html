@@ -55,3 +55,25 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+<script>
+    $("#get-code button").on('click', function () {
+        const phoneNumber = $("#get-code input").val()
+        console.log(phoneNumber)
+
+        $("#get-code").addClass("d-none")
+        $("#verify-code").removeClass("d-none")
+    })
+
+    $("#verify-code button").on('click', function () {
+        const code = $("#verify-code input").val()
+        console.log(code)
+    })
+
+    $("#change-phone button").on('click', function () {
+        $("#change-phone").addClass("d-none")
+        $("#get-code").removeClass("d-none")
+    })
+</script>
+{% endblock scripts %}
