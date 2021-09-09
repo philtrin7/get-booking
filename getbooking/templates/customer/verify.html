@@ -58,17 +58,41 @@
 
 {% block scripts %}
 <script>
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        'size': 'invisible'
+    });
+
     $("#get-code button").on('click', function () {
         const phoneNumber = $("#get-code input").val()
         console.log(phoneNumber)
 
-        $("#get-code").addClass("d-none")
-        $("#verify-code").removeClass("d-none")
+        const appVerifier = window.recaptchaVerifier;
+        firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then((confirmationResult) => {
+                console.log(confirmationResult)
+                window.confirmationResult = confirmationResult;
+                $("#get-code").addClass("d-none")
+                $("#verify-code").removeClass("d-none")
+
+            }).catch((error) => {
+                // implement error notification (ie. toast)
+            });
     })
 
     $("#verify-code button").on('click', function () {
         const code = $("#verify-code input").val()
-        console.log(code)
+
+        confirmationResult.confirm(code).then((result) => {
+            const user = result.user;
+            console.log(user.phoneNumber)
+
+            user.getIdToken().then(function (idToken) {
+                console.log(idToken)
+            })
+        }).catch((error) => {
+            // User couldn't sign in (bad verification code?)
+            // ...
+        });
     })
 
     $("#change-phone button").on('click', function () {
