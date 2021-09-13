@@ -20,6 +20,11 @@ def appointment(request):
 def verify_mobile(request):
     if request.method == "POST":
         if request.POST.get('action') == 'verify_phone':
-            firebase_user = auth.verify_id_token(request.POST.get('id_token'))
-            print(firebase_user)
+            try:
+                firebase_user = auth.verify_id_token(
+                    request.POST.get('id_token'))
+
+            except Exception as e:
+                print(e)
+
     return render(request, 'customer/verify.html')
