@@ -1,5 +1,5 @@
 import firebase_admin
-from firebase_admin import credentials
+from firebase_admin import credentials, auth
 from django.shortcuts import render
 from django.conf import settings
 
@@ -18,4 +18,8 @@ def appointment(request):
 
 
 def verify_mobile(request):
+    if request.method == "POST":
+        if request.POST.get('action') == 'verify_phone':
+            firebase_user = auth.verify_id_token(request.POST.get('id_token'))
+            print(firebase_user)
     return render(request, 'customer/verify.html')

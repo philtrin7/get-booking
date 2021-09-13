@@ -62,6 +62,32 @@
         'size': 'invisible'
     });
 
+    function submitTokenForVerification(idToken) {
+        var form = document.createElement("form")
+        form.method = "POST"
+
+        var element1 = document.createElement("input")
+        element1.type = "hidden"
+        element1.name = "id_token"
+        element1.value = idToken
+        form.appendChild(element1)
+
+        var element2 = document.createElement("input")
+        element2.type = "hidden"
+        element2.name = "action"
+        element2.value = "verify_phone"
+        form.appendChild(element2)
+
+        var element3 = document.createElement("input")
+        element3.type = "hidden"
+        element3.name = "csrfmiddlewaretoken"
+        element3.value = "{{ csrf_token }}"
+        form.appendChild(element3)
+
+        document.body.appendChild(form)
+        form.submit()
+    }
+
     $("#get-code button").on('click', function () {
         const phoneNumber = $("#get-code input").val()
         console.log(phoneNumber)
@@ -87,7 +113,7 @@
             console.log(user.phoneNumber)
 
             user.getIdToken().then(function (idToken) {
-                console.log(idToken)
+                submitTokenForVerification(idToken)
             })
         }).catch((error) => {
             // User couldn't sign in (bad verification code?)
