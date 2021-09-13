@@ -1,6 +1,12 @@
+import firebase_admin
+from firebase_admin import credentials
 from django.shortcuts import render
+from django.conf import settings
 
 from getbooking.customer import forms
+
+cred = credentials.Certificate(settings.FIREBASE_ADMIN_CREDENTIALS)
+firebase_admin.initialize_app(cred)
 
 
 def appointment(request):
