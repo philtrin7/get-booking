@@ -116,3 +116,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+FIREBASE_ADMIN_CREDENTIALS = os.path.join(
+    BASE_DIR, "getbooking-b90b9-firebase-adminsdk-he5nc-5eb15c00b6.json")
