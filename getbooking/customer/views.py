@@ -25,20 +25,20 @@ def appointment(request):
 
 def verify_mobile(request):
     if request.method == "POST":
-        if request.POST.get('action') == 'verify_phone':
+        if request.POST.get('action') == 'verify_mobile':
             try:
                 firebase_user = auth.verify_id_token(
                     request.POST.get('id_token'))
-                phone_number = firebase_user['phone_number']
+                mobile_number = firebase_user['phone_number']
 
                 # First time verifying mobile > create User & Customer > authenticate
-                if not User.objects.filter(username=phone_number):
-                    user = User.objects.create_user(username=phone_number)
+                if not User.objects.filter(username=mobile_number):
+                    user = User.objects.create_user(username=mobile_number)
                     user.set_unusable_password()
                     user.save()
 
                     Customer.objects.create(
-                        user=user, phone_number=phone_number)
+                        user=user, mobile_number=mobile_number)
 
                     user_auth = authenticate(request, username=user.username)
                     if user_auth is not None:
@@ -46,8 +46,8 @@ def verify_mobile(request):
                         return redirect(reverse('customer:appointment'))
 
                 # Returning user > authenticate
-                if User.objects.filter(username=phone_number):
-                    user_auth = authenticate(request, username=phone_number)
+                if User.objects.filter(username=mobile_number):
+                    user_auth = authenticate(request, username=mobile_number)
                     if user_auth is not None:
                         login(request, user_auth)
                         return redirect(reverse('customer:appointment'))

@@ -4,7 +4,7 @@ from getbooking.customer.models import Customer
 
 
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ['phone_number', ]
+    list_display = []
 
 
 admin.site.register(Customer, CustomerAdmin)
