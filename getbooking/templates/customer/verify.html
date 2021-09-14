@@ -116,6 +116,7 @@
                 submitTokenForVerification(idToken)
             })
         }).catch((error) => {
+            console.log(error)
             // User couldn't sign in (bad verification code?)
             // ...
         });

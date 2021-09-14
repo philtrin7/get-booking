@@ -20,7 +20,7 @@ from getbooking.core import views as core_views
 from getbooking.customer import views as customer_views
 
 customer_urlpatterns = [
-    path('appointment/', customer_views.appointment),
+    path('appointment/', customer_views.appointment, name='appointment'),
     path('verify-mobile/', customer_views.verify_mobile)
 ]
 
