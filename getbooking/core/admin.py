@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from getbooking.customer.models import Customer
+
+
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = []
+
+
+admin.site.register(Customer, CustomerAdmin)
