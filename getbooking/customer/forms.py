@@ -10,4 +10,4 @@ class CreateBookingForm(forms.ModelForm):
 
     class Meta:
         model = Customer
-        fields = ('address', 'phone_number', 'date_of_birth')
+        fields = ('address', 'date_of_birth')

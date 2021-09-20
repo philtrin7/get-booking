@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    address = models.CharField(max_length=255, blank=False)
-    phone_number = models.CharField(max_length=10, blank=False)
+    address = models.CharField(max_length=255, blank=True)
+    mobile_number = models.CharField(max_length=13, blank=False, unique=True)
     date_of_birth = models.DateField(null=True, blank=True)
 
     def __str__(self):

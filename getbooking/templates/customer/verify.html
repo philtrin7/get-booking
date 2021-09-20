@@ -1,0 +1,130 @@
+{% extends 'customer/base.html' %}
+{% load bootstrap4 %}
+
+{% block head %}
+{% include 'customer/firebase.html' %}
+{% endblock head %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <!-- LEFT_SIDE -->
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    JOB SUMMARY
+                </div>
+                <div class="card-body">
+                    <p>A summary of your job information will appear here</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT_SIDE -->
+        <div class="col-lg-8">
+            <!-- Step forms -->
+            <!-- Phone number -->
+            <b class="text-secondary">Mobile Number</b><br />
+
+            <div class="card bg-white mt-2 mb-5">
+                <div class="card-body">
+
+                    <div id="recaptcha-container"></div>
+
+                    <div id="get-code" class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="04xx-xxx-xxx">
+                        <div class="input-group-append">
+                            <button class="btn btn-warning" type="button">Next</button>
+                        </div>
+                    </div>
+                    <div id="verify-code" class="input-group mb-3 d-none">
+                        <input type="text" class="form-control" placeholder="Verification code">
+                        <div class="input-group-append">
+                            <button class="btn btn-warning" type="button">Verify Code</button>
+                        </div>
+                    </div>
+                    <div id="change-phone" class="input-group mb-3 d-none">
+                        <input type="text" class="form-control" disabled value="">
+                        <div class="input-group-append">
+                            <button class="btn btn-warning" type="button">Change</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        'size': 'invisible'
+    });
+
+    function submitTokenForVerification(idToken) {
+        var form = document.createElement("form")
+        form.method = "POST"
+
+        var element1 = document.createElement("input")
+        element1.type = "hidden"
+        element1.name = "id_token"
+        element1.value = idToken
+        form.appendChild(element1)
+
+        var element2 = document.createElement("input")
+        element2.type = "hidden"
+        element2.name = "action"
+        element2.value = "verify_mobile"
+        form.appendChild(element2)
+
+        var element3 = document.createElement("input")
+        element3.type = "hidden"
+        element3.name = "csrfmiddlewaretoken"
+        element3.value = "{{ csrf_token }}"
+        form.appendChild(element3)
+
+        document.body.appendChild(form)
+        form.submit()
+    }
+
+    $("#get-code button").on('click', function () {
+        const phoneNumber = $("#get-code input").val()
+        console.log(phoneNumber)
+
+        const appVerifier = window.recaptchaVerifier;
+        firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+            .then((confirmationResult) => {
+                console.log(confirmationResult)
+                window.confirmationResult = confirmationResult;
+                $("#get-code").addClass("d-none")
+                $("#verify-code").removeClass("d-none")
+
+            }).catch((error) => {
+                // implement error notification (ie. toast)
+            });
+    })
+
+    $("#verify-code button").on('click', function () {
+        const code = $("#verify-code input").val()
+
+        confirmationResult.confirm(code).then((result) => {
+            const user = result.user;
+            console.log(user.phoneNumber)
+
+            user.getIdToken().then(function (idToken) {
+                submitTokenForVerification(idToken)
+            })
+        }).catch((error) => {
+            console.log(error)
+            // User couldn't sign in (bad verification code?)
+            // ...
+        });
+    })
+
+    $("#change-phone button").on('click', function () {
+        $("#change-phone").addClass("d-none")
+        $("#get-code").removeClass("d-none")
+    })
+</script>
+{% endblock scripts %}
