@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
     'getbooking.core',
     'getbooking.customer',
+    'getbooking.provider',
 ]
 
 MIDDLEWARE = [

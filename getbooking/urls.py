@@ -19,16 +19,21 @@ from django.conf.urls import url
 
 from getbooking.core import views as core_views
 from getbooking.customer import views as customer_views
+from getbooking.provider import views as provider_views
 
 customer_urlpatterns = [
     path('appointment/', customer_views.appointment, name='appointment'),
     path('verify-mobile/', customer_views.verify_mobile)
 ]
 
+provider_urlpatterns = [
+    url(r'^doctor/philtrin/([1-2][0-9]{3})-([0-1][0-9])-([0-3][0-9])/?$',
+        provider_views.view_week),
+]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', core_views.home),
     path('book/', include((customer_urlpatterns, 'customer'))),
-    url(r'^doctor/philtrin/([1-2][0-9]{3})-([0-1][0-9])-([0-3][0-9])/?$',
-        core_views.view_week),
+    path('provider/', include((provider_urlpatterns, 'provider'))),
 ]
