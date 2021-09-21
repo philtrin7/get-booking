@@ -1,0 +1,9 @@
+{
+  "name": "getbooking",
+  "version": "1.0.0",
+  "author": "Philtrin <philtrin7@gmail.com>",
+  "dependencies": {
+    "bootstrap": "^3.4.1",
+    "less": "^4.1.1"
+  }
+}
