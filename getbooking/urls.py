@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 
 from getbooking.core import views as core_views
 from getbooking.customer import views as customer_views
@@ -27,5 +28,7 @@ customer_urlpatterns = [
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', core_views.home),
-    path('book/', include((customer_urlpatterns, 'customer')))
+    path('book/', include((customer_urlpatterns, 'customer'))),
+    url(r'^doctor/philtrin/([1-2][0-9]{3})-([0-1][0-9])-([0-3][0-9])/?$',
+        core_views.view_week),
 ]
