@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
 
-    <!-- Bootstrap 
-    <link type="text/less" rel="stylesheet" href="/static/less/site.less" charset="utf-8">
-    -->
+    {% load static %}
+    {% load compress %}
+    <!-- Bootstrap -->
+    {% compress css %}
+    <link type="text/less" rel="stylesheet" href="{% static '/less/provider.less' %}" charset="utf-8">
+    {% endcompress %}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,9 +23,13 @@
 </head>
 
 <body>
+    <div class="jumbotron">
+        {% block jumbotron %}{% endblock %}
+    </div>
     <div class="container">
         {% block content %}{% endblock %}
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </body>
 
 </html>

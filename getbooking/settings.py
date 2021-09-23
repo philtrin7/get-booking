@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'compressor',
 
     'getbooking.core',
     'getbooking.customer',
@@ -71,14 +72,19 @@ STATICFILES_DIRS = [
     ('less', os.path.join(BASE_DIR, "node_modules", "bootstrap", "less")),
     ('bootstrap-js', os.path.join(BASE_DIR, "node_modules", "bootstrap", "js")),
     # Copy other assets.
-    ('less', os.path.join(BASE_DIR, "getbooking", "static", "provider", "less")),
+    ('less', os.path.join(BASE_DIR, "getbooking", "static", "less")),
 ]
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 )
 
+COMPRESS_ENABLED = True
+COMPRESS_PRECOMPILERS = (
+    ('text/less', '/usr/bin/lessc {infile} {outfile}'),
+)
 
 WSGI_APPLICATION = 'getbooking.wsgi.application'
 

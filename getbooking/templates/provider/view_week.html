@@ -1,5 +1,14 @@
-{% extends 'core/base.html' %}
+{% extends 'provider/base.html' %}
 
-{% block content %}
-<h1>Hello view_week!</h1>
-{% endblock content %}
+{% block title %}Book appointment{% endblock %}
+
+{% block jumbotron %}
+<div class="container" style="text-align: center">
+    <h1><a href="/">GetBooking</a></h1>
+    <h4 style="margin-top:1em">Book an appointment slot below.</h4>
+    <div style="text-align:center;margin-top:1em;font-size:110%">
+        <strong>Duration:</strong> 60
+        minutes, <strong>Location:</strong> My office
+    </div>
+</div>
+{% endblock jumbotron %}

@@ -1,11 +1,10 @@
 db.sqlite3
 .vscode/
 env/
-static/
 media/
 *.pyc
 __pycache__/
 getbooking*.json
 node_modules/
 package-lock.json
-static_collect
+static_collect/
