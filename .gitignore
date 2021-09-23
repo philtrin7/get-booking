@@ -8,3 +8,4 @@ __pycache__/
 getbooking*.json
 node_modules/
 package-lock.json
+static_collect

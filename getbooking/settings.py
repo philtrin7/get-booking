@@ -61,6 +61,25 @@ TEMPLATES = [
     },
 ]
 
+# Static file collection
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static_collect")
+
+STATICFILES_DIRS = [
+    # Copy bootstrap assets.
+    ('fonts', os.path.join(BASE_DIR, "node_modules", "bootstrap", "fonts")),
+    ('less', os.path.join(BASE_DIR, "node_modules", "bootstrap", "less")),
+    ('bootstrap-js', os.path.join(BASE_DIR, "node_modules", "bootstrap", "js")),
+    # Copy other assets.
+    ('less', os.path.join(BASE_DIR, "getbooking", "static", "provider", "less")),
+]
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+
 WSGI_APPLICATION = 'getbooking.wsgi.application'
 
 
