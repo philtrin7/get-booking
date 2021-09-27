@@ -12,3 +12,245 @@
     </div>
 </div>
 {% endblock jumbotron %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-2 visible-lg">
+        &nbsp;
+    </div>
+    <div class="col-md-2 visible-md">
+        &nbsp;
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12">
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-xs-6 col-sm-3">
+                <a class="btn btn-info btn-lg" role="button" href="/">&laquo; Previous week</a>
+            </div>
+            <div class="col-sm-6 hidden-xs"
+                style="text-align: center; color: #666; font-size: 120%; font-weight: bold; padding-top: 0.5em">
+                Week commencing Mon 27th Sep
+            </div>
+            <div class="col-xs-6 col-sm-3" style="text-align:right">
+                <a class="btn btn-info btn-lg" role="button" href="/">Next week &raquo;</a>
+            </div>
+        </div>
+        <table class="table" style="text-align: center">
+            <thead
+                style="font-weight:bold; font-size: 120%{% if not times.one_available %}; border-bottom: 1px solid #ccc{% endif %}">
+                <tr>
+                    <td>Mon 4th Oct</td>
+                    <td>Tue 5th Oct</td>
+                    <td>Wed 6th Oct</td>
+                    <td>Thu 7th Oct</td>
+                    <td>Fri 8th Oct</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/09-30">09:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/09-30">09:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/09-30">09:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/09-30">09:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/09-30">09:30</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/10-00">10:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/10-00">10:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/10-00">10:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/10-00">10:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/10-00">10:00</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/10-30">10:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/10-30">10:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/10-30">10:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/10-30">10:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/10-30">10:30</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/11-00">11:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/11-00">11:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/11-00">11:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/11-00">11:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/11-00">11:00</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/11-30">11:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/11-30">11:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/11-30">11:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/11-30">11:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/11-30">11:30</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-arrow-down" style="color:#777" aria-hidden="true"></span>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-arrow-down" style="color:#777" aria-hidden="true"></span>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-arrow-down" style="color:#777" aria-hidden="true"></span>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-arrow-down" style="color:#777" aria-hidden="true"></span>
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-arrow-down" style="color:#777" aria-hidden="true"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/13-30">13:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/13-30">13:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/13-30">13:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/13-30">13:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/13-30">13:30</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/14-00">14:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/14-00">14:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/14-00">14:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/14-00">14:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/14-00">14:00</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/14-30">14:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/14-30">14:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/14-30">14:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/14-30">14:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/14-30">14:30</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/15-00">15:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/15-00">15:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/15-00">15:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/15-00">15:00</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/15-00">15:00</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-04/15-30">15:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-05/15-30">15:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-06/15-30">15:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-07/15-30">15:30</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-time" role="button" href="/book/phd/2021-10-08/15-30">15:30</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-3 visible-lg">
+        &nbsp;
+    </div>
+    <div class="col-md-2 visible-md">
+        &nbsp;
+    </div>
+</div>
+{% endblock %}
