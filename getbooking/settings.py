@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from configparser import ConfigParser
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -150,3 +151,13 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'getbooking.customer.auth_backend.PasswordlessAuthBackend',
 ]
+
+# Import site-specifc env variables from config.ini.
+
+config = ConfigParser()
+config.read(os.path.join(BASE_DIR, "config.ini"))
+
+# Cronofy settings
+CRONOFY_CLIENT_ID = config.get('cronofy', "CLIENT_ID")
+CRONOFY_CLIENT_SECRET = config.get('cronofy', "CLIENT_SECRET")
+CRONOFY_REFRESH_TOKEN = config.get('cronofy', "REFRESH_TOKEN")
