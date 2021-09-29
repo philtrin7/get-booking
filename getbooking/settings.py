@@ -131,7 +131,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -161,3 +161,6 @@ config.read(os.path.join(BASE_DIR, "config.ini"))
 CRONOFY_CLIENT_ID = config.get('cronofy', "CLIENT_ID")
 CRONOFY_CLIENT_SECRET = config.get('cronofy', "CLIENT_SECRET")
 CRONOFY_REFRESH_TOKEN = config.get('cronofy', "REFRESH_TOKEN")
+
+# Calendar settings
+TIME_ZONE = config.get("calendar", "TIME_ZONE")

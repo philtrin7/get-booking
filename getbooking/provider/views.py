@@ -1,6 +1,13 @@
 import requests
+import pytz
+import datetime as dt
+
+from django.http import Http404
 from django.shortcuts import render
-from getbooking.settings import CRONOFY_CLIENT_ID, CRONOFY_CLIENT_SECRET, CRONOFY_REFRESH_TOKEN
+
+from getbooking.settings import CRONOFY_CLIENT_ID, CRONOFY_CLIENT_SECRET, CRONOFY_REFRESH_TOKEN, TIME_ZONE
+
+LOCALTZ = pytz.timezone(TIME_ZONE)
 
 
 def request_cronofy_access_token():
@@ -22,6 +29,13 @@ def request_cronofy_access_token():
 
 
 def view_week(request, year, month, day):
-    access_token = request_cronofy_access_token()
-    print(access_token)
+    try:
+        date = LOCALTZ.localize(dt.datetime(
+            int(year), int(month), int(day), hour=9))
+    except ValueError:
+        raise Http404("Date does not exist")
+
+    print(date)
+    # access_token = request_cronofy_access_token()
+    # print(access_token)
     return render(request, 'provider/view_week.html')
