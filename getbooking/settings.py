@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from configparser import ConfigParser
+from jsonconfigparser import JSONConfigParser
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -154,7 +154,7 @@ AUTHENTICATION_BACKENDS = [
 
 # Import site-specifc env variables from config.ini.
 
-config = ConfigParser()
+config = JSONConfigParser()
 config.read(os.path.join(BASE_DIR, "config.ini"))
 
 # Cronofy settings

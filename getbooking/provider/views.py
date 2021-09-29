@@ -1,4 +1,3 @@
-from os import access
 import requests
 from django.shortcuts import render
 from getbooking.settings import CRONOFY_CLIENT_ID, CRONOFY_CLIENT_SECRET, CRONOFY_REFRESH_TOKEN

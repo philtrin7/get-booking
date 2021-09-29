@@ -24,7 +24,7 @@ googleapis-common-protos==1.53.0
 grpcio==1.40.0
 httplib2==0.19.1
 idna==3.2
-msgpack==1.0.2
+json_config_parser @ git+https://github.com/philtrin7/json-config-parser.git@1c1ed2a2d6ac1356ce4455dd19262bd3dc86f7be
 packaging==21.0
 proto-plus==1.19.0
 protobuf==3.17.3
